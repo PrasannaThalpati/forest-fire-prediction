@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Fire Prevention</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style_index.css') }}" rel="stylesheet"/>
+</head>
+<body background="{{ url_for('static',filename='img/forest_fire_img.jpeg') }}">
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about_us">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="tagline">
+            <strong><h1 align="center">Forest Fire Prevention</h1></strong>
+        </div>
+        
+        <!--Taking input-->
+        <div class="bttn" style="text-align: center; margin-left: -300px;">
+        <section>
+            <form action="/predict" method="POST" class="form">
+                
+                <div class="buttons">
+                    <input type="number" placeholder="Enter Oxygen Level" name="oxygen" required style="margin-right: -6px;">
+                    <label class="label" style="margin-right: 22px;">Oxygen</label>
+                    <input type="number" placeholder="Enter Humidity" name="temp" required>
+                    <label class="label">Humidity</label>
+                    <input type="number" placeholder="Enter Temperature" name="hum" required style="margin-left: 15px;">
+                    <label class="label">Temperature</label>
+                </div>
+                
+                <!--creating prediction button-->
+                <div class="prebtn" style="text-align: center; margin-left: -250px;">
+                    <button type="submit" class="btnpre" action="/predict">Predict</button>
+                </div>
+            
+            </form>
+        </section>
+        </div>
+       
+        <div class="fin" style="padding-top: 10px;">
+        <div class="last" style="margin-left: 200px; margin-right: 200px;">
+            <div class="las" style="margin-left: 100px;">
+            {{pred}}
+            </div>
+        </div>
+    </div>
+    </header>
+</body>
+</html>
